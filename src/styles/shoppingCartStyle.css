@@ -1,22 +1,30 @@
 .cartContent {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 50px; /*Separacion entre los elemetos*/
+    padding: 10px;
+    justify-content: center;
 }
 
 .cartContent > img {
-    height: 120px;
-    width: 100px;
+    height: 180px;
     text-align: center;
+}
+
+.cartContent > h3 {
+    position: relative;
+    margin-top: 40%;
 }
 
 .carritoVacio {
     text-align: center;
+    font-size: 30px;
+    padding: 20px;
 }
 
 .cart-delete-button {
     cursor: pointer;
+    font-size: 25px;
 }
 
 .cart-items-total{

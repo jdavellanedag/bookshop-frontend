@@ -5,9 +5,7 @@ import "../styles/bookDetailsStyle.css"
 
 const BookDetails = () => {
     const { bookId } = useParams();
-    const { books } = useContext(LibraryContext);
-    const { cartProduct } = useContext(LibraryContext);
-    const { setCartProduct } = useContext(LibraryContext);
+    const { books, cartProduct, setCartProduct } = useContext(LibraryContext);
     const book = books.find(b => b.id === bookId);
     const onAddProduct = (book) => {
         const productExist = book.cantidad === 1;

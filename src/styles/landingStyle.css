@@ -1,0 +1,21 @@
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQB3E_gWXPfH_uzBFbfm9dW6Fp1EHuOtWkg&usqp=CAU");
+}
+
+.landing h1 {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.enlace-landing {
+    outline: none;
+    text-decoration: none;
+}

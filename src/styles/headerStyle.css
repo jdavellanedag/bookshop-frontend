@@ -1,0 +1,26 @@
+.faShoppingCart{
+    color: white;
+    cursor: pointer;
+    margin-top: 4vh;
+    margin-right: 20px;
+}
+
+.nav-container {
+    position: sticky;
+    z-index: 3;
+    top:0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 15vh;
+}
+
+.enlace-cabecera-books {
+    color: deeppink;
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+

@@ -1,0 +1,31 @@
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 30px; /*Separacion entre los elemetos*/
+    padding: 10px;
+    justify-content: center;
+}
+
+#spinner {
+    font-size: 80px;
+    animation: spinner 4s linear infinite;
+    display: flex;
+    position: relative;
+    left: 280%;
+    margin-top: 60px;
+}
+
+@keyframes spinner {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+
+.libro-no-encontrado {
+    display: flex;
+    position: relative;
+    left: 235%
+}

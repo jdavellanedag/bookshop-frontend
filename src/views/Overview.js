@@ -14,16 +14,13 @@ export const Overview = () => {
     const search = query.get("search");
     let librosFilt = [];
     let noHayBusqueda= true;
-    console.log(search);
 
     if(search === null || search === ""){
         librosFilt = books;
         noHayBusqueda = true;
-        console.log(noHayBusqueda);
     }else{
         librosFilt = books.filter(b => {
             noHayBusqueda = false;
-            console.log(noHayBusqueda);
             let result = "";
             let nombre = "";
             let autor = "";

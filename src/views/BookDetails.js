@@ -5,10 +5,10 @@ import "../styles/bookDetailsStyle.css"
 
 const BookDetails = () => {
     const { bookId } = useParams();
-    const { books, cartProduct, setCartProduct } = useContext(LibraryContext);
+    const { books, cartProduct, setCartProduct, rentBooks } = useContext(LibraryContext);
     const book = books.find(b => b.id === bookId);
     const onAddProduct = (book) => {
-        const productExist = book.alquilado;
+        const productExist = rentBooks.find((item) => item.id === book.id);
         const productRepeat = cartProduct.find((item) => item.id === book.id);
         if (productExist){
             window.alert(book.nombre + " ya está alquilado");

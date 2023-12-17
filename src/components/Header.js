@@ -13,7 +13,7 @@ export const Header = () => {
                     <h1>La librería de Ohara</h1>
                 </Link>
                 <>
-                    <Link className="enlace-cabecera-menu" to={`/cart/`}>
+                    <Link className="enlace-cabecera-menu" to={`/rentedBooks/`}>
                         <MdMenuBook className="menu-libros-alquilados"/>
                     </Link>
                     <Link className="enlace-cabecera-carrito" to={`/cart/`}>

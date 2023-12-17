@@ -6,6 +6,7 @@ import BookDetails from "../views/BookDetails";
 import NotFound from "../views/NotFound";
 import {Header} from "../components/Header";
 import ShoppingCart from "../views/ShoppingCart";
+import {RentedBooks} from "../views/RentedBooks";
 
 function GlobalRouter() {
     return (
@@ -15,6 +16,7 @@ function GlobalRouter() {
                 <Route path="/books" element={<Layout><Overview /></Layout>} />
                 <Route path="/books/:bookId" element={<Layout><BookDetails /></Layout>} />
                 <Route path="/cart" element={<Layout><ShoppingCart /></Layout>} />
+                <Route path="/rentedBooks" element={<Layout><RentedBooks /></Layout>} />
                 <Route path="*" element={<Layout><NotFound /></Layout>} />
             </Routes>
         </BrowserRouter>

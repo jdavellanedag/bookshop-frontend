@@ -7,12 +7,14 @@
 }
 
 #spinner {
-    font-size: 80px;
+    font-size: 60px;
     animation: spinner 4s linear infinite;
-    display: flex;
-    position: relative;
-    left: 280%;
-    margin-top: 60px;
+
+}
+
+.faSpinner {
+    text-align: center;
+    padding: 40px;
 }
 
 @keyframes spinner {
@@ -25,7 +27,6 @@
 }
 
 .libro-no-encontrado {
-    display: flex;
-    position: relative;
-    left: 235%
+    text-align: center;
+    font-size: 40px;
 }

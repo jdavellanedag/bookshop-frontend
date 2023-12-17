@@ -51,14 +51,14 @@ export const Overview = () => {
 
 
     return (
-        <div>
-            <Search />
-            <div className="book-container">
-                {
-                    librosFilt.length === 0 && noHayBusqueda === false ? (
-                        <h3 className="libro-no-encontrado"> Libro no encontrado</h3>
-                    ) : (
-                        librosFilt.length > 0 ? (
+        librosFilt.length === 0 && noHayBusqueda === false ? (
+            <h3 className="libro-no-encontrado"> Libro no encontrado</h3>
+        ) : (
+            librosFilt.length > 0 ? (
+                <>
+                    <Search />
+                    <div className="book-container">
+                        {
                             librosFilt.map((book, index) => (
                                 <Book
                                     key={index}
@@ -67,12 +67,14 @@ export const Overview = () => {
                                     portada={book.portada}
                                 />
                             ))
-                        ) : (
-                            <FaSpinner id="spinner"/>
-                        )
-                    )
-                }
-            </div>
-        </div>
+                        }
+                    </div>
+                </>
+            ) : (
+                <div className="faSpinner">
+                    <FaSpinner id="spinner"/>
+                </div>
+            )
+        )
     );
 }

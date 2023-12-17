@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 50px; /*Separacion entre los elemetos*/
-    padding: 10px;
     justify-content: center;
+    padding: 10px;
 }
 
 .cartContent > img {
@@ -13,7 +13,7 @@
 
 .cartContent > h3 {
     position: relative;
-    margin-top: 40%;
+    margin-top: 50%;
 }
 
 .carritoVacio {
@@ -38,6 +38,10 @@
     position: absolute;
 }
 
-.titulo-carrito{
+.boton-tramitar-alquiler{
+    margin-top: 20px;
+    padding: 8px 15px;
+}
+.elementos-carrito {
     text-align: center;
 }

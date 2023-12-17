@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import "../styles/headerStyle.css"
 import { FaShoppingCart } from "react-icons/fa";
 import TotalItemsCart from "./TotalItemsCart";
+import { MdMenuBook } from "react-icons/md";
 
 export const Header = () => {
     return (
@@ -11,11 +12,15 @@ export const Header = () => {
                 <Link className="enlace-cabecera-books" to={`/books/`}>
                     <h1>La librería de Ohara</h1>
                 </Link>
-                
-                <Link className="enlace-cabecera-carrito" to={`/cart/`}>
-                    <FaShoppingCart className="faShoppingCart"/>
-                    <TotalItemsCart />
-                </Link>
+                <>
+                    <Link className="enlace-cabecera-menu" to={`/cart/`}>
+                        <MdMenuBook className="menu-libros-alquilados"/>
+                    </Link>
+                    <Link className="enlace-cabecera-carrito" to={`/cart/`}>
+                        <FaShoppingCart className="faShoppingCart"/>
+                        <TotalItemsCart />
+                    </Link>
+                </>
             </nav>
         </div>
     );

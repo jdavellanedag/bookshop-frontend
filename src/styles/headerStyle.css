@@ -13,7 +13,6 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     height: 15vh;
 }
 
@@ -22,5 +21,20 @@
     outline: none;
     text-decoration: none;
     padding: 2px 1px 0;
+    position: absolute;
+    left: 1%;
 }
 
+.menu-libros-alquilados {
+    color: white;
+    cursor: pointer;
+    margin-top: 3.5vh;
+    position: absolute;
+    left: 93%;
+    font-size: 20px;
+}
+
+.enlace-cabecera-carrito {
+    position: absolute;
+    left: 97%;
+}

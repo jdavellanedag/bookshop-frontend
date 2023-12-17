@@ -52,7 +52,10 @@ export const Overview = () => {
 
     return (
         librosFilt.length === 0 && noHayBusqueda === false ? (
-            <h3 className="libro-no-encontrado"> Libro no encontrado</h3>
+            <div className="libro-no-encontrado">
+                <h3 > Libro no encontrado</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2RdnpLzKUrze1UjeadoFi7w0evwDjCTUwg&usqp=CAU" alt="Book not found"/>
+            </div>
         ) : (
             librosFilt.length > 0 ? (
                 <>

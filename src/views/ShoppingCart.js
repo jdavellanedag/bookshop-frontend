@@ -7,6 +7,7 @@ const ShoppingCart = () => {
 
     return cartProduct.length > 0 ? (
         <>
+            <h2 className="titulo-carrito">Carrito de libros</h2>
             <CartElements />
         </>
     ) : (

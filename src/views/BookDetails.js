@@ -10,8 +10,15 @@ const BookDetails = () => {
     const { setCartProduct } = useContext(LibraryContext);
     const book = books.find(b => b.id === bookId);
     const onAddProduct = (book) => {
-        console.log(book);
-        setCartProduct([...cartProduct, book]);
+        const productExist = book.cantidad === 1;
+        const productRepeat = cartProduct.find((item) => item.id === book.id);
+        if (productExist){
+            window.alert(book.nombre + " ya está alquilado");
+        } else if(productRepeat) {
+            window.alert(book.nombre + " ya está en la cesta");
+        } else {
+            setCartProduct([...cartProduct, book]);
+        }
     }
 
     if (!book) {

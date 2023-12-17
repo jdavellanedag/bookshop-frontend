@@ -9,3 +9,7 @@ body {
     padding: 20px;
     text-align: center;
 }
+
+.not-found {
+    width: 100%;
+}

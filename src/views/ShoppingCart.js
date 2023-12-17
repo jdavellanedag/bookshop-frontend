@@ -9,9 +9,7 @@ const ShoppingCart = () => {
     const navigate = useNavigate();
 
     const addLibrosAlquilados = () => {
-        cartProduct.forEach(p => {
-            setRentBooks([...rentBooks, p]);
-        })
+        setRentBooks(rentBooks => [...rentBooks, ...cartProduct]);
         setCartProduct([]);
         navigate("/rentedBooks");
     }

@@ -7,15 +7,26 @@ export const RentedBooks = () => {
     const { rentBooks } = useContext(LibraryContext);
 
     return (
-        rentBooks.map((book, index) => (
-            <RentedBook
-                key={index}
-                id={book.id}
-                nombre={book.nombre}
-                portada={book.portada}
-                diasPrestamo={book.diasPrestamo}
-                libro = {book}
-            />
-        ))
-    )
+        rentBooks.length > 0 ? (
+            <>
+                <h2> Libros alquilados</h2>
+                <div className="rented-books-container">
+                    {
+                        rentBooks.map((book, index) => (
+                            <RentedBook
+                                key={index}
+                                id={book.id}
+                                nombre={book.nombre}
+                                portada={book.portada}
+                                diasPrestamo={book.diasPrestamo}
+                                libro = {book}
+                            />
+                        ))
+                    }
+                </div>
+            </>
+            ) : (
+                <h2>No hay ningún libro alquilado</h2>
+            )
+    );
 }

@@ -1,34 +1,22 @@
-.libros-alquilados {
+.rented-books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 270px);
-    gap: 50px; /*Separacion entre los elemetos*/
+    grid-template-columns: repeat(auto-fill, 190px);
+    gap: 70px; /*Separacion entre los elemetos*/
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
 }
 
 .libros-alquilados > img {
     height: 180px;
-    text-align: center;
-}
-
-.libros-alquilados > h3 {
-    position: relative;
-    margin-top: 30%;
-}
-
-.contador{
-    display: flex;
-    gap: 50px;
-}
-
-.periodo-prestamo {
-    position: relative;
-    margin-top: 32%;
 }
 
 .add-button{
     font-size: 30px;
-    position: relative;
-    margin-top: 30%;
     cursor: pointer;
+}
+
+h2 {
+    text-align: center;
 }

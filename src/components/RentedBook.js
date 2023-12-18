@@ -1,11 +1,9 @@
 import React, {useContext} from "react";
 import {CiCirclePlus} from "react-icons/ci";
 import {LibraryContext} from "../context/LibraryContext";
-import {useNavigate} from "react-router";
 
 export const RentedBook = ({id, nombre, portada, diasPrestamo, libro}) => {
     const { rentBooks, setRentBooks } = useContext(LibraryContext);
-    const navigate = useNavigate();
     const addDays =() => {
         const libroEnc = rentBooks.find((item) => item.id === id);
         if(libroEnc){

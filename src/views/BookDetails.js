@@ -11,7 +11,7 @@ const BookDetails = () => {
         const productExist = rentBooks.find((item) => item.id === book.id);
         const productRepeat = cartProduct.find((item) => item.id === book.id);
         if (productExist){
-            window.alert(book.nombre + " ya está alquilado");
+            window.alert(book.nombre + " ya está en la lista de alquilados");
         } else if(productRepeat) {
             window.alert(book.nombre + " ya está en la cesta");
         } else {

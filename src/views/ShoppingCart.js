@@ -2,10 +2,9 @@ import CartElements from "../components/CartElements";
 import React, {useContext} from "react";
 import {LibraryContext} from "../context/LibraryContext";
 import "../styles/shoppingCartStyle.css"
-import useRedirection from "../hooks/useRedirection";
 import {useNavigate} from "react-router";
 const ShoppingCart = () => {
-    const { cartProduct, rentBooks, setRentBooks, setCartProduct } = useContext(LibraryContext);
+    const { cartProduct, setRentBooks, setCartProduct } = useContext(LibraryContext);
     const navigate = useNavigate();
 
     const addLibrosAlquilados = () => {

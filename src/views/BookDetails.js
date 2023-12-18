@@ -33,7 +33,7 @@ const BookDetails = () => {
                 <p><b>Año de publicación:</b> {book.anoPublicacion}</p>
                 <p><b>ISBN:</b> {book.isbn}</p>
                 <p><b>Calificación:</b> {book.critica} / 5</p>
-                <input type="button" value="Añadir al carrito" onClick={() => onAddProduct(book)}/>
+                <input type="button" value="Añadir a la cesta" onClick={() => onAddProduct(book)}/>
             </div>
         </div>
     );

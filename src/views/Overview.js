@@ -28,13 +28,13 @@ export const Overview = () => {
             let anoPublicacion = "";
             let idioma = "";
             if (search){
-                result = search.trim().toLowerCase();
+                result = search.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
             if(b.nombre){
-                nombre =  b.nombre.trim().toLowerCase();
+                nombre =  b.nombre.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
             if(b.autor){
-                autor = b.autor.trim().toLowerCase();
+                autor = b.autor.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
             if(b.isbn){
                 isbn = b.isbn.toString().trim();
@@ -43,7 +43,7 @@ export const Overview = () => {
                 anoPublicacion = b.anoPublicacion.toString().trim();
             }
             if(b.idioma){
-                idioma = b.idioma.trim().toLowerCase();
+                idioma = b.idioma.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
             return nombre.includes(result) || autor.includes(result) ||  isbn.startsWith(result) || anoPublicacion === result || idioma === result;
         });

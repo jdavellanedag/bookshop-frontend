@@ -26,6 +26,7 @@ export const Overview = () => {
             let autor = "";
             let isbn = "";
             let anoPublicacion = "";
+            let idioma = "";
             if (search){
                 result = search.trim().toLowerCase();
             }
@@ -41,7 +42,10 @@ export const Overview = () => {
             if(b.anoPublicacion){
                 anoPublicacion = b.anoPublicacion.toString().trim();
             }
-            return nombre.includes(result) || autor.includes(result) ||  isbn.startsWith(result) || anoPublicacion === result;
+            if(b.idioma){
+                idioma = b.idioma.trim().toLowerCase();
+            }
+            return nombre.includes(result) || autor.includes(result) ||  isbn.startsWith(result) || anoPublicacion === result || idioma === result;
         });
 
     }

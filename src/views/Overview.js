@@ -1,58 +1,19 @@
 import React, {useContext} from 'react';
 import {Book} from "../components/Book";
-import {LibraryContext} from "../context/LibraryContext";
 import '../styles/overviewStyle.css';
 import '../styles/styles.css';
 import { FaSpinner } from "react-icons/fa";
 import {Search} from "../components/Search";
-import {useQuery} from "../hooks/useQuery";
+import {useFilter} from "../hooks/useFilter";
+import {LibraryContext} from "../context/LibraryContext";
 
 export const Overview = () => {
 
-    const { books } = useContext(LibraryContext);
-    const query = useQuery();
-    const search = query.get("search");
-    let librosFilt = [];
-    let noHayBusqueda= true;
-
-    if(search === null || search === ""){
-        librosFilt = books;
-        noHayBusqueda = true;
-    }else{
-        librosFilt = books.filter(b => {
-            noHayBusqueda = false;
-            let result = "";
-            let nombre = "";
-            let autor = "";
-            let isbn = "";
-            let anoPublicacion = "";
-            let idioma = "";
-            if (search){
-                result = search.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            }
-            if(b.nombre){
-                nombre =  b.nombre.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            }
-            if(b.autor){
-                autor = b.autor.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            }
-            if(b.isbn){
-                isbn = b.isbn.toString().trim();
-            }
-            if(b.anoPublicacion){
-                anoPublicacion = b.anoPublicacion.toString().trim();
-            }
-            if(b.idioma){
-                idioma = b.idioma.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            }
-            return nombre.includes(result) || autor.includes(result) ||  isbn.startsWith(result) || anoPublicacion === result || idioma === result;
-        });
-
-    }
-
+    const { busqueda } = useContext(LibraryContext);
+    const librosFilt = useFilter();
 
     return (
-        librosFilt.length === 0 && noHayBusqueda === false ? (
+        librosFilt.length === 0  && busqueda === false? (
             <div className="libro-no-encontrado">
                 <h3 > Libro no encontrado</h3>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2RdnpLzKUrze1UjeadoFi7w0evwDjCTUwg&usqp=CAU" alt="Book not found"/>

@@ -9,9 +9,10 @@ function App() {
   const books = useBooks();
   const [cartProduct, setCartProduct] = useState([]);
   const [rentBooks, setRentBooks] = useState([]);
+    const [busqueda, setBusqueda] = useState(true);
 
   return (
-      <LibraryContext.Provider value={{books, cartProduct, setCartProduct, rentBooks, setRentBooks}}>
+      <LibraryContext.Provider value={{books, cartProduct, setCartProduct, rentBooks, setRentBooks, busqueda, setBusqueda}}>
         <GlobalRouter></GlobalRouter>
         <Footer />
       </LibraryContext.Provider>

@@ -10,7 +10,7 @@ function Landing() {
     return (
         <div className="landing">
             <Link className="enlace-landing" to={"/books"}> {/* Añadimos un enlace a la vista de los libros */}
-                <h1>Bienvenidos a La librería de Ohara</h1>
+                <h1>Bienvenidos a La biblioteca de Ohara</h1>
             </Link>
         </div>
     );

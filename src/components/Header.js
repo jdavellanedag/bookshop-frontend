@@ -10,7 +10,7 @@ export const Header = () => {
         <div className="nav-container">
             <nav className="navbar">
                 <Link className="enlace-cabecera-books" to={`/books/`}>
-                    <h1>La librería de Ohara</h1>
+                    <h1>La biblioteca de Ohara</h1>
                 </Link>
                 <>
                     <Link className="enlace-cabecera-menu" to={`/rentedBooks/`}>

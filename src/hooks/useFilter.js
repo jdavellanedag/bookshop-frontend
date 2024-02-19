@@ -18,25 +18,24 @@ export const useFilter = () => {
     };
 
     useEffect(() => {
+        fetch('http://localhost:8762/ms-library-books/books', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSend),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setFiltBooks(data.books);
+                console.log(data.books); // Respuesta de la API después del POST
+            });
         if(search){
             setBusqueda(false);
-            fetch('http://localhost:8762/ms-library-books/books', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataToSend),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setFiltBooks(data.books);
-                    console.log(data.books); // Respuesta de la API después del POST
-                });
         }else{
-            setFiltBooks(books);
             setBusqueda(true);
         }
-    });
+    }, [search]);
 
     return filtBooks;
 }

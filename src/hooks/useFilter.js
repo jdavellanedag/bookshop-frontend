@@ -10,19 +10,28 @@ export const useFilter = () => {
 
     const [filtBooks,setFiltBooks]  = useState([]);
 
+    const dataToSend = {
+        "targetMethod": "GET",
+        "queryParams": {
+            "search": [search]
+        }
+    };
+
     useEffect(() => {
         if(search){
             setBusqueda(false);
-            setFiltBooks(books.filter(b => {
-                const result = search.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                const nombre = b.nombre.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                const autor = b.autor.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                const isbn = b.isbn.toString().trim();
-                const anoPublicacion = b.anoPublicacion.toString().trim();
-                const idioma = b.idioma.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-                return nombre.includes(result) || autor.includes(result) || isbn.startsWith(result) || anoPublicacion === result || idioma === result;
-            }));
+            fetch('http://localhost:8762/ms-library-books/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSend),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    setFiltBooks(data.books);
+                    console.log(data.books); // Respuesta de la API después del POST
+                });
         }else{
             setFiltBooks(books);
             setBusqueda(true);

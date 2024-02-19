@@ -15,7 +15,7 @@ export function Search() {
     return (
         <form className="search-container" onSubmit={handleSubmit}>
             <div className="search-box">
-                <input className="searchInput" type = "text" placeholder="Título, ISBN, autor, idioma, ..." value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+                <input className="searchInput" type = "text" placeholder="Título, autor, ISBN o sinopsis" value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
                 <button className="searchButton" type="submit">
                     <FaSearch id="lupa"/>
                 </button>

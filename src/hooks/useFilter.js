@@ -3,12 +3,15 @@ import {LibraryContext} from "../context/LibraryContext";
 import {useLocation} from "react-router";
 
 export const useFilter = () => {
+
+    const ENDPOINT = "http://localhost:8762/ms-library-books";
     const { books, setBusqueda } = useContext(LibraryContext);
 
     const query = new URLSearchParams(useLocation().search);
     const search = query.get("search");
 
     const [filtBooks,setFiltBooks]  = useState([]);
+    const [facetes, setFacetes] = useState([]);
 
     const dataToSend = {
         "targetMethod": "GET",
@@ -17,8 +20,24 @@ export const useFilter = () => {
         }
     };
 
+    const fetchFacets = async () => {
+        const getFacetesRequest = {
+            "targetMethod": "GET",
+            "queryParams": {
+                "aggregate": [true]
+            }
+        }
+        const response = await fetch(`${ENDPOINT}/books`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(getFacetesRequest)
+        })
+        const data = await response.json();
+        setFacetes(data.aggs);
+    }
+
     useEffect(() => {
-        fetch('http://localhost:8762/ms-library-books/books', {
+        fetch(`${ENDPOINT}/books`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,5 +56,9 @@ export const useFilter = () => {
         }
     }, [search]);
 
-    return filtBooks;
+    useEffect( () => {
+        fetchFacets()
+    }, [search]);
+
+    return {filtBooks, facetes}
 }

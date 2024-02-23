@@ -1,3 +1,21 @@
+.book-catalogue {
+    display: grid;
+    grid-template-columns: 0.3fr 1.7fr;
+}
+
+.book-catalogue_facets {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin: 0 auto;
+    background-color: #444444;
+    padding: 40px 30px;
+}
+
+.book-catalogue_facets-item {
+    display: flex;
+}
+
 .book-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);

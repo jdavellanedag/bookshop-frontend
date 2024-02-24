@@ -1,4 +1,4 @@
-const ENDPOINT = process.env.GATEWAY_URL ;
+const ENDPOINT = process.env.GATEWAY_URL;
 const gatewayOptions = (body) => {
     return {
         method: "POST",
@@ -17,7 +17,7 @@ export const fetchAllBooks = async () => {
         }
         const response = await fetch(`${ENDPOINT}/books/api/v1/books`, gatewayOptions(body));
         const data = await response.json();
-        const books = data.books.map( rawBook => extractDataFromResponse(rawBook));
+        const books = data.books.map( rawBook => extractDataFromResponse(rawBook)).filter(book => book.available === true);
         const aggs = data.aggretorDetails;
         return {books, aggs};
     } catch (error) {
@@ -26,11 +26,11 @@ export const fetchAllBooks = async () => {
 }
 export const fetchBooks  = async (search, filter) => {
     try {
-        const body = buildRequest(search)
+        const body = buildQueryRequest(search)
 
         const response = await fetch(`${ENDPOINT}/books/api/v1/books`, gatewayOptions(body));
         const data = await response.json();
-        const books = data.books.map( rawBook => extractDataFromResponse(rawBook));
+        const books = data.books.map( rawBook => extractDataFromResponse(rawBook)).filter(book => book.available === true);
         const aggs = data.aggretorDetails;
         return {books, aggs};
     } catch (error) {
@@ -38,7 +38,7 @@ export const fetchBooks  = async (search, filter) => {
     }
 }
 
-const buildRequest = (search, filter) => {
+const buildQueryRequest = (search, filter) => {
     let baseRequest = {
             httpMethod: "GET",
             queryParams: {
@@ -54,9 +54,30 @@ const buildRequest = (search, filter) => {
 export const rentABook = async (bookId) => {
     try {
         const body = {
-            booksID: bookId
+            httpMethod: "POST",
+            body: {
+                booksID: [bookId]
+            }
         }
-        const response = await fetch(`${ENDPOINT}/requests`, gatewayOptions(body));
+        const response = await fetch(`${ENDPOINT}/books/api/v1/books/requests`, gatewayOptions(body));
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const returnABook = async (bookId) => {
+    try {
+        const bodyQueryRequests = {
+            httpMethod: "GET",
+        }
+        const responseRequests = await fetch(`${ENDPOINT}/requests/api/v1/requests`, gatewayOptions(bodyQueryRequests));
+        const requestData = await responseRequests.json();
+        const requestId = requestData.find( request => request.booksID.find( ids => bookId));
+
+        const body = {
+            httpMethod: "DELETE",
+        }
+        const response = await fetch(`${ENDPOINT}/requests/api/v1/requests/${requestId.id}`, gatewayOptions(body));
     } catch (error) {
         console.log(error);
     }

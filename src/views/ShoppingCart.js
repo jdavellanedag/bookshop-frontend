@@ -16,7 +16,7 @@ const ShoppingCart = () => {
 
     const addLibrosAlquilados = () => {
         cartProduct.forEach(cp => {
-            const newBook= {id:cp.id, nombre: cp.nombre, portada: cp.portada, diasPrestamo : 30};
+            const newBook= {id:cp.id, nombre: cp.name, portada: cp.image, diasPrestamo : 30};
             setRentBooks(b => [...b, newBook])
             rentABook(cp.id)
         });

@@ -10,6 +10,11 @@
 
 .libros-alquilados > img {
     height: 180px;
+    width: 180px;
+}
+
+.return-book_icon {
+    font-size: 30px;
 }
 
 .add-button{

@@ -14,8 +14,8 @@ const CartElements = () => {
     return cartProduct.map((product) => {
             return (
                 <div className="cartContent" key={product.id}>
-                    <img src={product.portada} alt={product.portada}/>
-                    <h3 className="name">{product.nombre}</h3>
+                    <img src={product.image} alt={product.image}/>
+                    <h3 className="name">{product.name}</h3>
                     <h3 className="cart-delete-button" onClick={() => deleteProduct(product.id)}><MdDelete /></h3>
                 </div>
             )

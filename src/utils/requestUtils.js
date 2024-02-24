@@ -1,4 +1,4 @@
-const ENDPOINT = process.env.GATEWAY_URL;
+const ENDPOINT = process.env.REACT_APP_GATEWAY_URL;
 const gatewayOptions = (body) => {
     return {
         method: "POST",

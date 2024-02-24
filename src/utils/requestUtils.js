@@ -1,66 +1,78 @@
-const ENDPOINT = "http://localhost:8762/ms-library-books";
-
-const getFacetesRequest = {
-    "targetMethod": "GET",
-    "queryParams": {
-        "aggregate": [true]
-    }
-}
-
-const hardcodedFacets = {
-    "books": [],
-    "aggs": [
-        {
-            "key": "Castellano",
-            "count": 55,
-            "uri": "idioma=Castellano"
-        },
-        {
-            "key": "Inglés",
-            "count": 12,
-            "uri": "idioma=Inglés"
-        },
-        {
-            "key": "Francés",
-            "count": 8,
-            "uri": "idioma=Francés"
-        }
-    ]
-}
-
-export const getFacets = async () => {
-    //const response = await fetch(`${ENDPOINT}/books`, {
-    //    method: 'POST',
-    //    headers: {'Content-Type': 'application/json'},
-    //    body: JSON.stringify(getFacetesRequest)
-    //})
-    //const data = await response.json();
-    const data = hardcodedFacets;
-
-    return data.aggs;
-}
-
-export const getBooks = async (search, filter) => {
-    const baseRequest =  {
-        "targetMethod": "GET",
-        "queryParams": {
-            "search": [],
-            "idioma": []
-        }
-    }
-    console.log(filter);
-    if (search) {
-        baseRequest.queryParams.search.push(search);
-    }
-    if (filter) {
-        baseRequest.queryParams.idioma.push(filter.key);
-    }
-
-    const response = await fetch(`${ENDPOINT}/books`, {
-        method: 'POST',
+const ENDPOINT = process.env.GATEWAY_URL ;
+const gatewayOptions = (body) => {
+    return {
+        method: "POST",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(baseRequest)
-    })
-    const data = await response.json();
-    return data.books;
+        body: JSON.stringify(body)
+    }
+}
+
+export const fetchAllBooks = async () => {
+    try {
+        const body = {
+            httpMethod: "GET",
+                queryParams: {
+                aggregate: ["true"]
+            }
+        }
+        const response = await fetch(`${ENDPOINT}/books/api/v1/books`, gatewayOptions(body));
+        const data = await response.json();
+        const books = data.books.map( rawBook => extractDataFromResponse(rawBook));
+        const aggs = data.aggretorDetails;
+        return {books, aggs};
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const fetchBooks  = async (search, filter) => {
+    try {
+        const body = buildRequest(search)
+
+        const response = await fetch(`${ENDPOINT}/books/api/v1/books`, gatewayOptions(body));
+        const data = await response.json();
+        const books = data.books.map( rawBook => extractDataFromResponse(rawBook));
+        const aggs = data.aggretorDetails;
+        return {books, aggs};
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const buildRequest = (search, filter) => {
+    let baseRequest = {
+            httpMethod: "GET",
+            queryParams: {
+                aggregate: ["true"]
+        }
+    }
+    if (search) {
+        baseRequest.queryParams.search = [search]
+    }
+    return baseRequest;
+}
+
+export const rentABook = async (bookId) => {
+    try {
+        const body = {
+            booksID: bookId
+        }
+        const response = await fetch(`${ENDPOINT}/requests`, gatewayOptions(body));
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const extractDataFromResponse = (rawBook) => {
+    return {
+        id: rawBook.bookId,
+        name: rawBook.bookName.bookName,
+        isbn: rawBook.isbn.isbn,
+        image: rawBook.image.url,
+        author: rawBook.author.author,
+        releaseYear: rawBook.releaseYear.releaseYear,
+        rate: rawBook.rate.rate,
+        language: rawBook.language.language,
+        available: rawBook.available.available
+    }
 }

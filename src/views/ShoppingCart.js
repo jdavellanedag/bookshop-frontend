@@ -3,6 +3,7 @@ import React, {useContext} from "react";
 import {LibraryContext} from "../context/LibraryContext";
 import "../styles/shoppingCartStyle.css"
 import {useNavigate} from "react-router";
+import {rentABook} from "../utils/requestUtils";
 const ShoppingCart = () => {
     const { cartProduct, setRentBooks, setCartProduct } = useContext(LibraryContext);
     const navigate = useNavigate();
@@ -17,15 +18,7 @@ const ShoppingCart = () => {
         cartProduct.forEach(cp => {
             const newBook= {id:cp.id, nombre: cp.nombre, portada: cp.portada, diasPrestamo : 30};
             setRentBooks(b => [...b, newBook])
-            fetch('http://localhost:8762/ms-library-books/books/' + cp.id, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataToSend),
-            })
-                .then((response) => response.json())
-                .then((data) => {});
+            rentABook(cp.id)
         });
         setCartProduct([]);
         navigate("/rentedBooks");

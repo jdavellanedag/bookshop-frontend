@@ -3,18 +3,23 @@ import {LibraryContext} from "../context/LibraryContext";
 
 export const Facet = ({facet}) => {
 
-    const {updateFacets} = useContext(LibraryContext);
-    const [checked, setChecked] = useState(false)
-    const handleOnChange = (value) => {
-        updateFacets(value);
-        setChecked(!checked);
+    const {setActiveFacet} = useContext(LibraryContext);
+    const [isChecked, setIsChecked] = useState(false)
+    const handleOnChange = () => {
+        if (!isChecked) {
+            setIsChecked(true)
+            setActiveFacet(facet)
+        } else {
+            setIsChecked(false);
+            setActiveFacet({})
+        }
     }
 
     return (
         <div className="book-catalogue_facets-item">
             <label>
-                <input type="checkbox" checked={checked} name={facet.key} onChange={() => handleOnChange(facet)}/>
-                {`${facet.key} (${facet.count})`}
+                <input type="checkbox" checked={isChecked} name={facet.languaje} onChange={handleOnChange}/>
+                {`${facet.languaje} (${facet.value})`}
             </label>
         </div>
     );

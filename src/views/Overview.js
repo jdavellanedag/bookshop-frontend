@@ -11,7 +11,7 @@ import {Facet} from "../components/Facet";
 
 export const Overview = () => {
 
-    const { busqueda, facetsData } = useContext(LibraryContext);
+    const { busqueda, aggs } = useContext(LibraryContext);
     const {filtBooks} = useFilter();
 
     const [filters, setFilters] = useState([]);
@@ -29,9 +29,9 @@ export const Overview = () => {
             <div className="book-catalogue">
                 <div className="book-catalogue_facets">
                     {
-                        facetsData && (
-                            facetsData.map((element) => (
-                                <Facet key={element.key} facet={element}/>
+                        aggs && (
+                            aggs.map((element) => (
+                                <Facet key={element.languaje} facet={element}/>
                             ))
                         )
                     }

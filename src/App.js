@@ -3,31 +3,18 @@ import {LibraryContext} from "./context/LibraryContext";
 import {Footer} from "./components/Footer";
 import {useBooks} from "./hooks/useBooks";
 import {useEffect, useState} from "react";
-import { getFacets} from "./utils/requestUtils";
 
 function App() {
 
     const [activeFacet, setActiveFacet] = useState({})
 
-    const [facetsData, setFacetsData] = useState([])
-
-    useEffect(() => {
-        getFacets()
-            .then((data) => setFacetsData(data))
-    }, []);
-
-    const updateFacets = (facet) => {
-        setActiveFacet(facet);
-    }
-
-
-    const books = useBooks();
+    const {books, aggs, setAggs} = useBooks();
     const [cartProduct, setCartProduct] = useState([]);
     const [rentBooks, setRentBooks] = useState([]);
     const [busqueda, setBusqueda] = useState(true);
 
     return (
-      <LibraryContext.Provider value={{books, cartProduct, setCartProduct, rentBooks, setRentBooks, busqueda, setBusqueda, updateFacets, facetsData, activeFacet}}>
+      <LibraryContext.Provider value={{books, cartProduct, setCartProduct, rentBooks, setRentBooks, busqueda, setBusqueda, setActiveFacet, setAggs, aggs, activeFacet}}>
         <GlobalRouter></GlobalRouter>
         <Footer />
       </LibraryContext.Provider>

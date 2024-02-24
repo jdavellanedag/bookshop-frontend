@@ -8,8 +8,8 @@ export const Catalogue = ({books}) => {
                     <Book
                         key={index}
                         id={book.id}
-                        nombre={book.nombre}
-                        portada={book.portada}
+                        nombre={book.name}
+                        portada={book.image}
                     />
                 ))
             }

@@ -1,0 +1,312 @@
+{
+  "books": [
+    {
+      "bookId": "6c727b84-22f4-4b74-a67e-bb5763831704",
+      "bookName": {
+        "bookName": "The Great Gatsby"
+      },
+      "isbn": {
+        "isbn": "978-0743273565"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "F. Scott Fitzgerald"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "10567d88-a219-4112-be85-3d6a5614489a",
+      "bookName": {
+        "bookName": "To Kill a Mockingbird"
+      },
+      "isbn": {
+        "isbn": "978-0061120084"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Harper Lee"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "a5e125cb-5dbe-4500-b94c-63993c96f49f",
+      "bookName": {
+        "bookName": "1984"
+      },
+      "isbn": {
+        "isbn": "978-0451524935"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "George Orwell"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "c0b85ec8-7e10-4adb-b0f9-541f7d9f529a",
+      "bookName": {
+        "bookName": "One Hundred Years of Solitude"
+      },
+      "isbn": {
+        "isbn": "978-0060883287"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Gabriel García Márquez"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "0baf0e8d-5447-48d5-be06-194da181838c",
+      "bookName": {
+        "bookName": "The Brothers Karamazov"
+      },
+      "isbn": {
+        "isbn": "978-0374528379"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Fyodor Dostoevsky"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "6694d19e-89b2-4871-b410-2972cb6f1e87",
+      "bookName": {
+        "bookName": "Crime and Punishment"
+      },
+      "isbn": {
+        "isbn": "978-0486415871"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Fyodor Dostoevsky"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "6ad80924-2027-424d-b2ae-b9287926c4cd",
+      "bookName": {
+        "bookName": "The Catcher in the Rye"
+      },
+      "isbn": {
+        "isbn": "978-0316769488"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "J.D. Salinger"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "0b76f6b4-0da1-40ea-9d08-fda14bb12034",
+      "bookName": {
+        "bookName": "Wuthering Heights"
+      },
+      "isbn": {
+        "isbn": "978-1853264887"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Emily Brontë"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "59ae58fe-2ee3-47d9-a607-e241b1d32f1b",
+      "bookName": {
+        "bookName": "Pride and Prejudice"
+      },
+      "isbn": {
+        "isbn": "978-1503290563"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Jane Austen"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    },
+    {
+      "bookId": "1c607f4d-d9a9-4bfe-9443-fcb186e6078b",
+      "bookName": {
+        "bookName": "Les Misérables"
+      },
+      "isbn": {
+        "isbn": "978-0140449266"
+      },
+      "image": {
+        "url": "http://thecatapi.com/api/images/get?format=src&type=gif"
+      },
+      "author": {
+        "author": "Victor Hugo"
+      },
+      "releaseYear": {
+        "releaseYear": 2020
+      },
+      "rate": {
+        "rate": 4.5
+      },
+      "language": {
+        "language": "English"
+      },
+      "available": {
+        "available": true
+      }
+    }
+  ],
+  "aggretorDetails": [
+    {
+      "languaje": "English",
+      "value": 20
+    },
+    {
+      "languaje": "Inglés",
+      "value": 11
+    },
+    {
+      "languaje": "Ruso",
+      "value": 3
+    },
+    {
+      "languaje": "Alemán",
+      "value": 2
+    },
+    {
+      "languaje": "Francés",
+      "value": 2
+    },
+    {
+      "languaje": "Italiano",
+      "value": 2
+    },
+    {
+      "languaje": "Japonés",
+      "value": 2
+    },
+    {
+      "languaje": "Chino",
+      "value": 1
+    },
+    {
+      "languaje": "Español",
+      "value": 1
+    }
+  ]
+}
